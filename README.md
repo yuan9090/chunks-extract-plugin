@@ -1,0 +1,1 @@
+# jsonpscriptsrc-extract-plugin
