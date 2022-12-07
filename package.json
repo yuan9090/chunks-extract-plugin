@@ -1,0 +1,22 @@
+{
+  "name": "jsonpscriptsrc-extract-plugin",
+  "version": "1.0.0",
+  "description": "extract chunkId Object to File from `jsonpscriptsrc` function",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuan9090/jsonpscriptsrc-extract-plugin"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yuan9090 (yuan9090@gmail.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "10.1.0",
+    "standard": "12.0.1"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  }
+}
