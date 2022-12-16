@@ -1,11 +1,11 @@
 {
-  "name": "jsonpscriptsrc-extract-plugin",
+  "name": "chunks-extract-plugin",
   "version": "1.0.0",
-  "description": "extract chunkId Object to File from `jsonpscriptsrc` function",
+  "description": "extract chunkMap to File from `jsonpscriptsrc` function",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yuan9090/jsonpscriptsrc-extract-plugin"
+    "url": "git+https://github.com/yuan9090/chunks-extract-plugin.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,5 +18,13 @@
   },
   "standard": {
     "parser": "babel-eslint"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/yuan9090/chunks-extract-plugin/issues"
+  },
+  "homepage": "https://github.com/yuan9090/chunks-extract-plugin#readme",
+  "keywords": [
+    "chunks",
+    "webpack"
+  ]
 }

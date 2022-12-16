@@ -1,6 +1,6 @@
-# jsonpscriptsrc-extract-plugin
+# chunks-extract-plugin
 ---
-extract chunkId Object to File from `jsonpscriptsrc` function
+extract chunkMap to File from `jsonpscriptsrc` function
 ### Before
 ```js
 // js File
@@ -10,7 +10,6 @@ function jsonpScriptSrc() {
 ```
 ### After
 ```json 
-// json File
 {"0":"0-2b10c240", ...}
 ```
 
