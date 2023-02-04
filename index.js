@@ -5,18 +5,17 @@ class ChunksExtractPlugin {
   apply (compiler) {
     let json = ''
 
-    /** 找到function jsonpScriptSrc提取chunkMap */
+    /** 提取chunkMap */
     compiler.hooks.thisCompilation.tap(pluginName, compilation => {
-      compilation.mainTemplate.hooks.localVars.tap({ name: pluginName, stage: 1 }, source => {
-        if (source.includes('jsonpScriptSrc')) {
-          const matchArray = source.match(/\+ "" \+ \((.*)\[.* \+ "-" \+ (.*)\[/i)
-          const nameJson = JSON.parse(matchArray[1])
-          const hashJson = JSON.parse(matchArray[2])
-          Object.keys(hashJson).forEach(chunkId => {
-            hashJson[chunkId] = (nameJson[chunkId] || chunkId) + '-' + hashJson[chunkId]
+      compilation.mainTemplate.hooks.localVars.tap({ name: pluginName, stage: 1 }, (source, chunk) => {
+        const chunkMaps = chunk.getChunkMaps(false).hash
+        const chunkEntries = Object.entries(chunkMaps)
+        let chunkJson = {}
+        if (chunkEntries.length > 0) {
+          chunkEntries.forEach(([name, hash]) => {
+            chunkJson[name] = name + '-' + hash
           })
-          json = JSON.stringify(hashJson)
-          return source.replace(matchArray[1], '{}').replace(matchArray[2], '{}')
+          json = JSON.stringify(chunkJson)
         }
       })
     })
