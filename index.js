@@ -8,12 +8,15 @@ class ChunksExtractPlugin {
     /** 提取chunkMap */
     compiler.hooks.thisCompilation.tap(pluginName, compilation => {
       compilation.mainTemplate.hooks.localVars.tap({ name: pluginName, stage: 1 }, (source, chunk) => {
-        const chunkMaps = chunk.getChunkMaps(false).hash
-        const chunkEntries = Object.entries(chunkMaps)
+        const chunkMaps = chunk.getChunkMaps(false)
+        const chunkHash = chunkMaps.hash
+        const chunkName = chunkMaps.name
+        const chunkHashEntries = Object.entries(chunkHash)
         let chunkJson = {}
-        if (chunkEntries.length > 0) {
-          chunkEntries.forEach(([name, hash]) => {
-            chunkJson[name] = name + '-' + hash
+        if (chunkHashEntries.length > 0) {
+          chunkHashEntries.forEach(([name, hash]) => {
+            const fileName = chunkName[name] || name
+            chunkJson[name] = fileName + '-' + hash
           })
           json = JSON.stringify(chunkJson)
         }
