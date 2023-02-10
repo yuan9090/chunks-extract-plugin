@@ -1,7 +1,7 @@
 {
   "name": "chunks-extract-plugin",
-  "version": "2.0.0",
-  "description": "extract chunkMap to File from `jsonpscriptsrc` function",
+  "version": "2.0.1",
+  "description": "extract chunkMap to json file, and read it.",
   "main": "index.js",
   "repository": {
     "type": "git",
